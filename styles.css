@@ -1,211 +1,433 @@
 /* --------------------------------- */
-/* RESET */
+/* Reset général */
 /* --------------------------------- */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:#f4f7fb;
-  color:#333;
-  line-height:1.6;
-  overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------- */
-/* TOP BAR DRAPEAUX */
+/* Body et styles globaux */
 /* --------------------------------- */
-.top-bar{
-  background:#f1f1f1;
-  height:50px;
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1001;
-}
-
-.flag{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:50px;
-}
-
-.flag.left{left:15px;}
-.flag.right{right:15px;}
-
-/* --------------------------------- */
-/* NAVBAR */
-/* --------------------------------- */
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#004080;
-  padding:10px 30px;
-  position:fixed;
-  top:50px;
-  width:100%;
-  z-index:1000;
-}
-
-.nav-photo{height:60px}
-
-.nav-links{
-  display:flex;
-  list-style:none;
-  gap:20px;
-}
-
-.nav-links a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.menu-toggle{
-  display:none;
-  font-size:24px;
-  background:none;
-  border:none;
-  color:#fff;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7fb;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* --------------------------------- */
-/* SLIDER */
+/* Barre du haut (top-bar) avec drapeau */
 /* --------------------------------- */
-.dgss-slider{
-  position:relative;
-  height:500px;
-  margin-top:110px;
-  overflow:hidden;
+.top-bar {
+  background-color: #f1f1f1;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-.slide{
-  position:absolute;
-  width:100%;
-  height:100%;
-  opacity:0;
-  transition:1s;
-}
-
-.slide.active{
-  opacity:1;
-}
-
-.dgss-slider img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* TEXTE SLIDER */
-.slide-caption{
-  position:absolute;
-  bottom:20%;
-  left:10%;
-  max-width:500px;
-  padding:20px;
-  background:rgba(0,33,71,0.85);
-  color:#fff;
+.flag {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
 }
 
 /* --------------------------------- */
-/* DIRECTEURS */
+/* Navbar principale */
 /* --------------------------------- */
-.directeurs-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  max-width:1200px;
-  margin:auto;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004080;
+  color: #fff;
+  padding: 10px 30px;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+}
+.nav-left .nav-photo {
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.nav-links li a:hover {
+  color: #05b116;
+  background-color: rgba(255,255,255,0.1);
 }
 
-.directeur-card{
-  background:#f0f8ff;
-  border-radius:15px;
-  padding:15px;
-  text-align:center;
-}
-
-.photo-directeur{
-  width:140px;
-  height:140px;
-  border-radius:50%;
+/* Menu Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
 /* --------------------------------- */
-/* MOBILE */
+/* Titres de section */
 /* --------------------------------- */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 50px 0 20px;
+  color: #004080;
+}
+
+/* --------------------------------- */
+/* Slider / Diaporama */
+/* --------------------------------- */
+.dgss-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  max-height: 500px;
+  overflow: hidden;
+  margin-top: 110px;
+}
+.dgss-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+.dgss-slider .slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+.dgss-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slider captions */
+.slide-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: rgba(0,33,71,0.85);
+  color: #fff;
+  border-radius: 5px;
+  z-index: 2;
+}
+.slide-caption h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.slide-caption p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+/* Slider buttons */
+.dgss-slider .prev,
+.dgss-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,33,71,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 18px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 3;
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.dgss-slider .prev:hover,
+.dgss-slider .next:hover {
+  background-color: rgba(0,33,71,0.9);
+}
+.dgss-slider .prev { left: 15px; }
+.dgss-slider .next { right: 15px; }
+
+/* Indicators */
+.dgss-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+.dgss-indicators span {
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dgss-indicators span.active {
+  background-color: #f0c808;
+}
+
+/* --------------------------------- */
+/* Section "Qui sommes-nous" */
+/* --------------------------------- */
+.about-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+.about-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-text {
+  flex: 1 1 500px;
+}
+.about-text h2.section-title { margin-bottom: 20px; }
+.about-text p, .about-text ul { margin-bottom: 15px; line-height: 1.6; }
+.about-text ul { padding-left: 20px; }
+}
+
+/* --------------------------------- */
+/* Section DG */
+/* --------------------------------- */
+
+.dg-section { padding: 60px 20px; background: #fff; }
+.dg-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dg-left {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dg-photo {
+    max-width: 100%;
+  height: 550px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+.dg-photo:hover { transform: scale(1.05); }
+.dg-name { margin-top: 15px; font-weight: bold; text-align: center; font-size: 16px; }
+.dg-message { flex: 1 1 600px; }
+.dg-message h4 { color: #004080; font-size: 18px; margin-bottom: 15px; }
+.dg-message blockquote {
+  background: #f8f9fa;
+  border-left: 4px solid #004080;
+  border-radius: 10px;
+  padding: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* --------------------------------- */
+/* Section Directeurs */
+/* --------------------------------- */
+
+.directeurs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.directeur-card {
+  background: linear-gradient(145deg,#cce5ff,#f0f8ff);
+  border-radius: 15px;
+  text-align: center;
+  width: 220px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.directeur-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.photo-directeur {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;   /* recadre l'image automatiquement */
+  border-radius: 50%;  /* cercle parfait */
+  border: 3px solid #05b116; /* contour vert DGSS */
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-directeur:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.directeur-card h4 {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  color: #004080;
+}
+
+.directeur-card em {
+  font-size: 0.9rem;
+  color: #555;
+  display: block;
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
 @media(max-width:768px){
-
-  .menu-toggle{display:block}
-
-  .nav-links{
-    display:none;
-    flex-direction:column;
-    width:100%;
+  .photo-directeur {
+    width: 100px;
+    height: 100px;
   }
-
-  .nav-links.active{display:flex}
-
-  /* SLIDER FIX */
-  .dgss-slider{
-    height:300px;
-  }
-
-  .slide-caption{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:12px;
-
-    background:linear-gradient(
-      to top,
-      rgba(0,0,0,0.85),
-      rgba(0,0,0,0.4),
-      transparent
-    );
-  }
-
-  .slide-caption h2{font-size:16px}
-  .slide-caption p{font-size:12px}
-
-  /* DIRECTEURS 2/2 */
-  .directeurs-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .photo-directeur{
-    width:100px;
-    height:100px;
+  .directeur-card {
+    width: 160px;
+    padding: 10px;
   }
 }
 
-/* PETITS TELEPHONES */
 @media(max-width:480px){
-
-  .dgss-slider{
-    height:250px;
+  .photo-directeur {
+    width: 80px;
+    height: 80px;
   }
-
-  .slide-caption h2{font-size:14px}
-  .slide-caption p{font-size:11px}
-
-  .photo-directeur{
-    width:80px;
-    height:80px;
+  .directeur-card {
+    width: 140px;
   }
 }
 
-/* LIMITER TEXTE */
-.slide-caption p{
-  display:-webkit-box;
-  -webkit-line-clamp:4;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+/* --------------------------------- */
+/* Section Documents */
+/* --------------------------------- */
+.documents-section { padding: 60px 20px; background: #fff; }
+#searchBar {
+  width: 80%;
+  margin: 0 auto 20px;
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
+.documents-table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.documents-table thead { background: #004080; color: #fff; }
+.documents-table th, .documents-table td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+.documents-table tbody tr:hover { background: #f1f1f1; }
+.documents-table a { color: #004080; font-weight: bold; text-decoration: none; }
+.documents-table a:hover { text-decoration: underline; }
+
+/* --------------------------------- */
+/* Section Organigramme */
+/* --------------------------------- */
+.organigram-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.organigram-photo {
+  max-width: 600px;       /* taille moyenne */
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer; /* indique que c'est cliquable */
+}
+
+.organigram-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --------------------------------- */
+/* Footer */
+/* --------------------------------- */
+.site-footer { background: #002147; color: #fff; padding: 40px 20px 20px; }
+.footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: auto; }
+.footer-section { flex: 1 1 250px; }
+.footer-section h4 {
+  font-size: 18px; margin-bottom: 15px; border-left: 4px solid #f0c808; padding-left: 10px;
+}
+.footer-section p, .footer-section ul { font-size: 14px; line-height: 1.7; }
+.footer-section a { color: #fff; text-decoration: none; transition: 0.3s; }
+.footer-section a:hover { color: #05b116; }
+
+
+
+.footer-bottom {
+  text-align: center;        /* centre le texte */
+  display: flex;             /* active flexbox */
+  flex-direction: column;    /* empile les éléments verticalement */
+  align-items: center;       /* centre horizontalement */
+  gap: 5px;                  /* espace entre les lignes */
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;                 /* supprime les marges par défaut */
+}
+/* --------------------------------- */
+/* Responsive simplifié */
+/* --------------------------------- */
+@media(max-width:1024px){.dgss-slider{height:400px}.slide-caption{max-width:400px;padding:15px}.slide-caption h2{font-size:20px}.slide-caption p{font-size:14px}.about-image img{height:400px}.documents-table{width:95%}}
+@media(max-width:768px){.menu-toggle{display:block}.nav-links{display:none;width:100%;flex-direction:column;gap:10px;margin-top:10px}.nav-links.active{display:flex}.nav-links li a{width:100%;padding:12px}.dgss-slider{height:300px;margin-top:90px}.slide-caption{position:relative;bottom:auto;left:auto;max-width:100%;margin:0;border-radius:0;padding:15px;background:rgba(0,33,71,0.95)}.slide-caption h2{font-size:18px}.slide-caption p{font-size:13px}.section-title{font-size:1.5rem;margin:30px 0 15px}.about-content,.dg-container,.directeurs-grid,.documents-section,.extra-section{padding:40px 15px}.about-content{flex-direction:column;gap:20px}.about-text,.about-image{flex:1 1 100%}.about-image img{height:300px}.dg-container{flex-direction:column;gap:20px;align-items:center}.dg-message{text-align:center}.directeurs-grid{gap:20px}.directeur-card{width:180px}.directeur-card img{height:150px}#searchBar{width:95%;font-size:14px}.documents-table{width:100%;font-size:14px}.documents-table th,.documents-table td{padding:8px}.footer-content{flex-direction:column;gap:30px}.footer-section{text-align:center}.footer-section.photo img{max-width:100%}.footer-section h4{border-left:none;padding-left:0;border-bottom:2px solid #f0c808;padding-bottom:5px}}
+@media(max-width:480px){.dgss-slider{height:250px}.nav-photo{height:50px}.section-title{font-size:1.3rem}.directeurs-grid{gap:15px}.directeur-card{width:150px;padding:10px}.directeur-card img{height:120px}.about-image img,.dg-photo{height:250px}.documents-table{font-size:12px}.documents-table th,.documents-table td{padding:6px 4px}}
