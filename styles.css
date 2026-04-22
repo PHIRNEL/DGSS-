@@ -1,15 +1,17 @@
-/* --------------------------------- */
+
+/* ===================================== */
 /* RESET */
-/* --------------------------------- */
+/* ===================================== */
 * {
   margin: 0;
+  padding: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* BODY */
-/* --------------------------------- */
+/* ===================================== */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f4f7fb;
@@ -19,9 +21,9 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* TOP BAR */
-/* --------------------------------- */
+/* ===================================== */
 .top-bar {
   background-color: #f1f1f1;
   height: 50px;
@@ -40,9 +42,9 @@ body {
   height: auto;
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* NAVBAR */
-/* --------------------------------- */
+/* ===================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -89,15 +91,12 @@ body {
   background: none;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* TITRES */
-/* --------------------------------- */
-
-/* --------------------------------- */
-/* Titres de section */
-/* --------------------------------- */
+/* ===================================== */
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -105,32 +104,30 @@ body {
   color: #004080;
 }
 
-/* --------------------------------- */
-/* Slider / Diaporama */
-/* --------------------------------- */
+/* ===================================== */
+/* SLIDER (CLEAN UNIQUE VERSION) */
+/* ===================================== */
 .dgss-slider {
   position: relative;
   width: 100%;
   height: 500px;
-  max-height: 500px;
   overflow: hidden;
   margin-top: 110px;
 }
+
 .dgss-slider .slide {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 1s ease-in-out;
 }
+
 .dgss-slider .slide.active {
   opacity: 1;
-  pointer-events: auto;
   z-index: 1;
 }
+
 .dgss-slider img {
   width: 100%;
   height: 100%;
@@ -138,109 +135,29 @@ body {
   display: block;
 }
 
-/* Slider captions */
+/* Caption */
 .slide-caption {
   position: absolute;
   bottom: 20%;
   left: 10%;
   max-width: 500px;
   padding: 20px;
-  background-color: rgba(0,33,71,0.85);
+  background: rgba(0,33,71,0.85);
   color: #fff;
   border-radius: 5px;
-  z-index: 2;
 }
+
 .slide-caption h2 {
   font-size: 24px;
-  margin-bottom: 10px;
 }
+
 .slide-caption p {
   font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-/* Slider buttons */
-.dgss-slider .prev,
-.dgss-slider .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,33,71,0.6);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  padding: 12px 18px;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 3;
-  min-width: 50px;
-  min-height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
-}
-.dgss-slider .prev:hover,
-.dgss-slider .next:hover {
-  background-color: rgba(0,33,71,0.9);
-}
-.dgss-slider .prev { left: 15px; }
-.dgss-slider .next { right: 15px; }
-
-/* Indicators */
-.dgss-indicators {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 3;
-}
-.dgss-indicators span {
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.dgss-indicators span.active {
-  background-color: #f0c808;
 }
 
-/* --------------------------------- */
-/* SLIDER */
-/* --------------------------------- */
-.dgss-slider {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  margin-top: 110px;
-}
-
-.dgss-slider .slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: 1s;
-}
-
-.dgss-slider .slide.active {
-  opacity: 1;
-}
-
-.dgss-slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* --------------------------------- */
+/* ===================================== */
 /* ABOUT */
-/* --------------------------------- */
+/* ===================================== */
 .about-section {
   padding: 60px 20px;
   background: #f9f9f9;
@@ -262,9 +179,9 @@ body {
   padding-left: 20px;
 }
 
-/* --------------------------------- */
-/* DG SECTION (AMÉLIORÉE) */
-/* --------------------------------- */
+/* ===================================== */
+/* DG SECTION (PROPRE + RESPONSIVE) */
+/* ===================================== */
 .dg-section {
   padding: 60px 20px;
   background: #fff;
@@ -274,26 +191,26 @@ body {
   display: flex;
   gap: 40px;
   justify-content: space-between;
-  align-items: flex-start;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
-  flex-wrap: wrap;
 }
 
-/* PHOTO DG */
 .dg-left {
-flex: 1 1 400px;
+  flex: 1 1 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .dg-photo {
-     max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   height: 550px;
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  object-fit: cover;
+  transition: 0.3s ease;
 }
 
 .dg-photo:hover {
@@ -308,7 +225,6 @@ flex: 1 1 400px;
   margin-top: 12px;
 }
 
-/* MESSAGE DG */
 .dg-message {
   flex: 2 1 600px;
 }
@@ -317,7 +233,6 @@ flex: 1 1 400px;
   font-size: 20px;
   color: #004080;
   margin-bottom: 15px;
-  font-weight: 700;
 }
 
 .dg-message blockquote {
@@ -330,13 +245,12 @@ flex: 1 1 400px;
   border-left: 5px solid #004080;
   padding: 25px;
   border-radius: 10px;
-  font-style: italic;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* DIRECTEURS */
-/* --------------------------------- */
+/* ===================================== */
 .directeurs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -365,9 +279,9 @@ flex: 1 1 400px;
   border: 3px solid #05b116;
 }
 
-/* --------------------------------- */
-/* DOCUMENTS TABLE FIX */
-/* --------------------------------- */
+/* ===================================== */
+/* DOCUMENTS TABLE */
+/* ===================================== */
 .documents-section {
   padding: 60px 20px;
   background: #fff;
@@ -411,91 +325,118 @@ flex: 1 1 400px;
   font-weight: bold;
 }
 
-/* --------------------------------- */
+/* ===================================== */
 /* ORGANIGRAMME */
-/* --------------------------------- */
+/* ===================================== */
 .organigram-container {
   text-align: center;
   margin-top: 20px;
 }
 
 .organigram-photo {
-  max-width: 600px;       /* taille moyenne */
+  max-width: 600px;
   width: 80%;
-  height: auto;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  cursor: pointer; /* indique que c'est cliquable */
 }
 
 .organigram-photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* --------------------------------- */
-/* Footer */
-/* --------------------------------- */
-.site-footer { background: #002147; color: #fff; padding: 40px 20px 20px; }
-.footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: auto; }
-.footer-section { flex: 1 1 250px; }
-.footer-section h4 {
-  font-size: 18px; margin-bottom: 15px; border-left: 4px solid #f0c808; padding-left: 10px;
+/* ===================================== */
+/* FOOTER */
+/* ===================================== */
+.site-footer {
+  background: #002147;
+  color: white;
+  padding: 40px 20px;
 }
-.footer-section p, .footer-section ul { font-size: 14px; line-height: 1.7; }
-.footer-section a { color: #fff; text-decoration: none; transition: 0.3s; }
-.footer-section a:hover { color: #05b116; }
 
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
 
+.footer-section {
+  flex: 1 1 250px;
+}
 
 .footer-bottom {
-  text-align: center;        /* centre le texte */
-  display: flex;             /* active flexbox */
-  flex-direction: column;    /* empile les éléments verticalement */
-  align-items: center;       /* centre horizontalement */
-  gap: 5px;                  /* espace entre les lignes */
+  text-align: center;
   margin-top: 20px;
 }
 
-.footer-bottom p {
-  margin: 0;                 /* supprime les marges par défaut */
-}
-/* --------------------------------- */
-/* RESPONSIVE */
-/* --------------------------------- */
+/* ===================================== */
+/* RESPONSIVE CLEAN */
+/* ===================================== */
 @media (max-width: 768px) {
 
-  .dg-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .dg-message blockquote {
-    text-align: left;
+  .navbar {
+    padding: 10px 15px;
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
+    background: #004080;
   }
 
   .menu-toggle {
     display: block;
   }
 
+  .dg-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dg-photo {
+    height: 320px;
+    width: 90%;
+  }
+
+  .dg-message blockquote {
+    font-size: 14px;
+    text-align: left;
+    padding: 18px;
+  }
+
+  .slide-caption {
+    position: relative;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+
   .documents-table {
     min-width: 500px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
+
   .section-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+
+  .dg-photo {
+    height: 260px;
   }
 
   .documents-table {
-    min-width: 400px;
+    min-width: 420px;
+    font-size: 12px;
   }
 }
