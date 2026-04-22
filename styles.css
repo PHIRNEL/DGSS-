@@ -271,48 +271,48 @@ body {
 }
 
 /* --------------------------------- */
-/* Section Directeurs */
+/* Section Directeurs PRO */
 /* --------------------------------- */
 
 .directeurs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
-  justify-items: center;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .directeur-card {
-  background: linear-gradient(145deg,#cce5ff,#f0f8ff);
+  background: linear-gradient(145deg, #cce5ff, #f0f8ff);
   border-radius: 15px;
   text-align: center;
-  width: 220px;
   padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .directeur-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Photo */
 .photo-directeur {
   width: 140px;
   height: 140px;
-  object-fit: cover;   /* recadre l'image automatiquement */
-  border-radius: 50%;  /* cercle parfait */
-  border: 3px solid #05b116; /* contour vert DGSS */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #05b116;
   margin-bottom: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .photo-directeur:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* Texte */
 .directeur-card h4 {
   font-size: 1.1rem;
   margin: 5px 0;
@@ -326,27 +326,52 @@ body {
   line-height: 1.4;
 }
 
-/* Mobile adjustments */
+/* --------------------------------- */
+/* TABLETTE */
+/* --------------------------------- */
 @media(max-width:768px){
+  .directeurs-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2/2 parfait */
+    gap: 15px;
+  }
+
+  .directeur-card {
+    padding: 12px;
+  }
+
   .photo-directeur {
     width: 100px;
     height: 100px;
   }
-  .directeur-card {
-    width: 160px;
-    padding: 10px;
-  }
 }
 
+/* --------------------------------- */
+/* MOBILE */
+/* --------------------------------- */
 @media(max-width:480px){
+  .directeurs-grid {
+    grid-template-columns: repeat(2, 1fr); /* toujours 2 */
+    gap: 10px;
+  }
+
+  .directeur-card {
+    padding: 10px;
+  }
+
   .photo-directeur {
     width: 80px;
     height: 80px;
   }
-  .directeur-card {
-    width: 140px;
+
+  .directeur-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .directeur-card em {
+    font-size: 0.75rem;
   }
 }
+
 
 /* --------------------------------- */
 /* Section Documents */
